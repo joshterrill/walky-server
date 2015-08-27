@@ -1,0 +1,6 @@
+{
+  "name": "walky",
+  "description": "a walky talky implementation using webrtc",
+  "repository": "https://github.com/joshterrill/walky",
+  "keywords": ["express", "webrtc", "p2p", "chat"]
+}
