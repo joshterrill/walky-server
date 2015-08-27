@@ -1,0 +1,18 @@
+body {
+  padding: 15px;
+}
+
+pre {
+  display: inline-block;
+}
+
+.container {
+  border: 1px black solid;
+  width: 600px;
+  text-align: center;
+  padding: 10px;
+}
+
+#talk {
+  width: 200px;
+}

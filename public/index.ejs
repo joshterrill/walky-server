@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/css/styles.css">
+      <script src="/js/jquery.min.js"></script>
+      <script src="/js/simplertc.min.js"></script>
+      <script>
+        //default media options
+        var mediaOptions = {
+            audio: true,
+            video: false
+        };
+        var webrtc = new SimpleWebRTC({
+          // the id/element dom element that will hold "our" video
+          localVideoEl: 'localVideo',
+          // the id/element dom element that will hold remote videos
+          remoteVideosEl: 'remotesVideos',
+          // immediately ask for camera access
+          autoRequestMedia: true,
+          media: mediaOptions
+        });
+        // we have to wait until it's ready
+        webrtc.on('readyToCall', function () {
+          // you can name it anything
+          webrtc.joinRoom('<%= uuid %>');
+          webrtc.mute();
+        });
+        
+        $(function() {
+          $("#myUrl").html(window.location.href)
+                     .attr("href", window.location.href);
+          
+          $("#talk").mousedown(function(e) {
+            console.log("Button pressed, unmuting");
+            webrtc.unmute();
+          })
+            .mouseup(function(e) {
+            console.log("Button lifted, muting");
+            webrtc.mute();
+          });
+        });
+      </script>
+    </head>
+    <body>
+      <div class="container">
+        <h1>walky</h1>
+        <p>Share this link to talk to other people!</p>
+        <pre><a id="myUrl"></a></pre>
+        <div id="localVideo" style="display: none;"></div>
+        <div id="remotesVideos" style="display: none;"></div>
+        <br />
+        <input type="button" id="talk" value="Hold to Talk" class="btn btn-success">
+      </div>
+    </body>
+</html>
