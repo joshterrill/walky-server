@@ -27,6 +27,12 @@
           webrtc.mute();
         });
         
+        // called when a peer is created
+        webrtc.on('createdPeer', function (peer) {
+          $("#introText").hide();
+          $("#connectedText").fadeIn();
+        });
+        
         $(function() {
           $("#myUrl").html(window.location.href)
                      .attr("href", window.location.href);
@@ -45,7 +51,8 @@
     <body>
       <div class="container">
         <h1>walky</h1>
-        <p>Share this link to talk to other people!</p>
+        <p id="introText">Share this link to talk to other people!</p>
+        <p id="connectedText" style="display: none;">A peer has connected!</p>
         <pre><a id="myUrl"></a></pre>
         <div id="localVideo" style="display: none;"></div>
         <div id="remotesVideos" style="display: none;"></div>
