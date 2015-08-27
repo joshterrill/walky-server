@@ -11,7 +11,9 @@ npm start
 
 ### mirror
 * http://walky-rtc.herokuapp.com
+
 or
+
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://www.heroku.com/deploy/?template=https://github.com/joshterrill/walky)
 
 ### license
