@@ -1,7 +1,13 @@
 # walky
 a walky talky implementation using webrtc
 
-### to install
+### to install from npm
+```
+npm install -g walky-server
+walky-server
+```
+
+### to install from git
 ```
 git clone https://github.com/joshuaterrill/walky-server.git
 cd walky-server/
